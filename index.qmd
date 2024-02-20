@@ -1,0 +1,31 @@
+---
+title: "temp_webpage"
+about:
+  id: intro-heading
+  template: trestles
+  image: images/profilepic.jpg
+  image-shape: round
+  links:
+    - icon: envelope
+      href: mailto:rosenb3@stolaf.edu
+    - icon: github
+      href: https://github.com/louiserosenbaum
+---
+
+::: {#intro-heading}
+## Louise Rosenbaum
+
+Political Science and Psychology Student at St. Olaf College <br> \@ [St. Olaf College](https://wp.stolaf.edu/)
+
+### Education
+
+BA in Psychology and Political Science with International Relations concentration<br> 2024 \| St. Olaf College
+:::
+
+### Get in Touch
+
+**Email**: <a href='mailto:rosenb3@stolaf.edu'> rosenb3 at stolaf.edu</a>
+
+**Address**: 1500 St. Olaf Ave, Northfield, MN 55057
+
+**Phone**: 612-554-4420
