@@ -83,7 +83,7 @@ head(us_states)
 us_states |>
   ggplot(mapping = aes(x = long, y = lat,
                           group = group)) + 
-  geom_polygon(fill = "white", color = "black")
+  geom_polygon(fill = "olivedrab3", color = "black")
 ```
 
 Other maps provided by the `maps` package include US counties, France, Italy, New Zealand, and two different views of the world. If you want maps of other countries or regions, you can often find them online.
@@ -119,6 +119,7 @@ us_states |>
 
 **[Pause to ponder:]** What did we learn by running `anti_join()` above?
 
+>>By running anti_join(), we learned about the discrepancies or mismatches between the vaccination data and the geographical data, highlighting issues like naming conventions (ie. New York State vs. New York City) that must be addressed for accurate data analysis.f
 
 Notice that the `us_states` map also includes only the contiguous 48 states. [This](https://r-spatial.org/r/2018/10/25/ggplot2-sf-3.html) gives an example of creating really beautiful map insets for Alaska and Hawaii.
 
@@ -159,7 +160,6 @@ vacc_mar13 |>
 
 **[Pause to ponder:]** Use autofill to play with different themes and scale_fills.
 
-
 Note: Map projections are actually pretty complicated, especially if you're looking at large areas (e.g. world maps).  It's impossible to preserve both shape and area when projecting a sphere onto a flat surface, so that's why you sometimes see [such different maps of the world](https://futuremaps.com/blogs/news/top-10-world-map-projections)
 
 There are a few different options in `coord_map()`. See the help menu, although this function is being phased out.
@@ -182,11 +182,11 @@ vacc_mar13 |>
   scale_fill_manual(values = c("blue", "red")) 
 ```
 
-
 ### Multiple maps!  
 
 **[Pause to ponder:]** are we bothered by the warning about many-to-many when you run the code below?
 
+>>No, the many-to-many warning is expected due to aggregating vaccination data over time for each state, and it aligns with the analysis process.
 
 ```{r}
 #| message: false
@@ -238,9 +238,9 @@ vacc_mar13 |>
 
 **[Pause to ponder:]** Why might one use a map like above instead of our previous choropleth maps?
 
+>>One might use a statebin map instead of choropleth maps to better highlight small states, particularly those on the East Coast, and to mitigate the visual bias caused by large states with small populations, ensuring a more equitable visual representation.
 
-I used [this example](https://livefreeordichotomize.com/2021/04/07/nytimes-map-how-to/) to create the code above.  The original graph is located [here](https://www.nytimes.com/interactive/2021/04/06/us/variants-cases-spread.html).
-
+I used [this example](https://livefreeordichotomize.com/2021/04/07/nytimes-map-how-to/) to create the code above.  The original graph is located [here](https://www.nytimes.com/interactive/2021/04/06/us/variants-cases-spread.html)
 
 ### Interactive map with leaflet
 
@@ -249,7 +249,7 @@ I used [this example](https://livefreeordichotomize.com/2021/04/07/nytimes-map-h
 #| include: false
 
 library(leaflet)
-airbnb.df <- read_csv("Data/airbnbData_full.csv")
+airbnb.df <- read_csv("https://proback.github.io/264_fall_2024/Data/airbnbData_full.csv") 
 ```
 
 Leaflet is a powerful open-source JavaScript library for building interactive maps in HTML.  Although the commands are different, the architecture is very similar to ggplot2. However, instead of putting data-based layers on top of a static map, leaflet allows you to put data-based layers on top of an interactive map.  Because leaflet renders as HTML to allow interactivity, they are less effective as static pdfs.
@@ -306,5 +306,38 @@ state_data <- as_tibble(poliscidata::states) |>
   mutate(state_name = str_squish(str_to_lower(as.character(state)))) |>
   select(-state)
 print(state_data, n = 5, width = Inf)
+```
+
+```{r}
+# Join the map data with unemployment rates
+unemployment_data <- left_join(us_states, state_data, by = c("region" = "state_name"))
+
+# Create the choropleth plot for unemployment rates
+ggplot(unemployment_data, aes(x = long, 
+                              y = lat, 
+                              group = group, 
+                              fill = unemploy)) +
+  geom_polygon(color = "white") +
+  scale_fill_gradient(low = "yellow", 
+                      high = "red", 
+                      name = "Unemployment Rate (%)") +
+  labs(title = "Unemployment Rate by State", x = "", y = "") +
+  coord_fixed(1.3) +
+  theme_void() +
+  theme(legend.position = "right")
+```
+
+```{r}
+# Join the map data with marijuana policy data
+marijuana_policy_data <- left_join(us_states, state_data, by = c("region" = "state_name"))
+
+# Create the choropleth plot for marijuana legalization policies
+ggplot(marijuana_policy_data, aes(x = long, y = lat, group = group, fill = pot_policy)) +
+  geom_polygon(color = "white") +
+  scale_fill_manual(values = c("Medicinal" = "green", "Decrim" = "blue", "Not legal" = "grey", "Medicinal / Decrim." = "purple"), name = "Marijuana Policy") +
+  labs(title = "Marijuana Legalization Policy by State", x = "", y = "") +
+  coord_fixed(1.3) +
+  theme_void() +
+  theme(legend.position = "right")
 ```
 
