@@ -9,8 +9,7 @@ editor_options:
 
 Based on Section 3.2.3 from Modern Data Science with R.
 
-You can download this .qmd file from [here](https://github.com/proback/264_fall_2024/blob/main/02_maps_part1.qmd).  Just hit the Download Raw File button.
-
+You can download this .qmd file from [here](https://github.com/proback/264_fall_2024/blob/main/02_maps_part1.qmd). Just hit the Download Raw File button.
 
 ```{r}
 #| message: false
@@ -21,10 +20,9 @@ library(tidyverse)
 library(mdsr)      # package associated with our MDSR book
 ```
 
-
 ### Opening example
 
-Here is a simple choropleth map example from MDSR 
+Here is a simple choropleth map example from MDSR
 
 ```{r}
 #| message: false
@@ -46,13 +44,11 @@ CIACountries |>
 
 ```
 
-
 ### Choropleth Maps
 
-When you have specific regions (e.g. countries, states, counties, census tracts,...) and a value associated with each region. 
+When you have specific regions (e.g. countries, states, counties, census tracts,...) and a value associated with each region.
 
-A choropleth map will color the entire region according to the value. 
-For example, let's consider state vaccination data from March 2021.
+A choropleth map will color the entire region according to the value. For example, let's consider state vaccination data from March 2021.
 
 ```{r}
 #| message: false
@@ -67,7 +63,7 @@ vacc_mar13 <- vaccine_data |>
 vacc_mar13
 ```
 
-The tricky part of choropleth maps is getting the shapes (polygons) that make up the regions. This is really a pretty complex set of lines for R to draw! 
+The tricky part of choropleth maps is getting the shapes (polygons) that make up the regions. This is really a pretty complex set of lines for R to draw!
 
 Luckily, some maps are already created in R in the maps package.
 
@@ -88,9 +84,9 @@ us_states |>
 
 Other maps provided by the `maps` package include US counties, France, Italy, New Zealand, and two different views of the world. If you want maps of other countries or regions, you can often find them online.
 
-Sometimes maps may be provided as shapefiles. To use these, you'll first need to read them into R and then turn them into tidy dataframes in order to use them with ggplot. See [here:](https://www.r-graph-gallery.com/168-load-a-shape-file-into-r.html).  More on shapefiles in Part 2.
+Sometimes maps may be provided as shapefiles. To use these, you'll first need to read them into R and then turn them into tidy dataframes in order to use them with ggplot. See [here:](https://www.r-graph-gallery.com/168-load-a-shape-file-into-r.html). More on shapefiles in Part 2.
 
-Where the really cool stuff happens is when we join our data to the `us_states` dataframe.  Notice that the state name appears in the "region" column of `us_states`, and that the state name is in all small letters. In `vacc_mar13`, the state name appears in the State column and is in title case.  Thus, we have to be very careful when we join the state vaccine info to the state geography data.
+Where the really cool stuff happens is when we join our data to the `us_states` dataframe. Notice that the state name appears in the "region" column of `us_states`, and that the state name is in all small letters. In `vacc_mar13`, the state name appears in the State column and is in title case. Thus, we have to be very careful when we join the state vaccine info to the state geography data.
 
 Run this line by line to see what it does:
 
@@ -117,9 +113,9 @@ us_states |>
   count(region)
 ```
 
-**[Pause to ponder:]** What did we learn by running `anti_join()` above?
+**\[Pause to ponder:\]** What did we learn by running `anti_join()` above?
 
->>By running anti_join(), we learned about the discrepancies or mismatches between the vaccination data and the geographical data, highlighting issues like naming conventions (ie. New York State vs. New York City) that must be addressed for accurate data analysis.f
+> > By running anti_join(), we learned about the discrepancies or mismatches between the vaccination data and the geographical data, highlighting issues like naming conventions (ie. New York State vs. New York City) that must be addressed for accurate data analysis.f
 
 Notice that the `us_states` map also includes only the contiguous 48 states. [This](https://r-spatial.org/r/2018/10/25/ggplot2-sf-3.html) gives an example of creating really beautiful map insets for Alaska and Hawaii.
 
@@ -136,7 +132,6 @@ us_states |>
 ```
 
 Better.
-
 
 ```{r}
 #| message: false
@@ -158,9 +153,9 @@ vacc_mar13 |>
   scale_fill_viridis() 
 ```
 
-**[Pause to ponder:]** Use autofill to play with different themes and scale_fills.
+**\[Pause to ponder:\]** Use autofill to play with different themes and scale_fills.
 
-Note: Map projections are actually pretty complicated, especially if you're looking at large areas (e.g. world maps).  It's impossible to preserve both shape and area when projecting a sphere onto a flat surface, so that's why you sometimes see [such different maps of the world](https://futuremaps.com/blogs/news/top-10-world-map-projections)
+Note: Map projections are actually pretty complicated, especially if you're looking at large areas (e.g. world maps). It's impossible to preserve both shape and area when projecting a sphere onto a flat surface, so that's why you sometimes see [such different maps of the world](https://futuremaps.com/blogs/news/top-10-world-map-projections)
 
 There are a few different options in `coord_map()`. See the help menu, although this function is being phased out.
 
@@ -182,11 +177,11 @@ vacc_mar13 |>
   scale_fill_manual(values = c("blue", "red")) 
 ```
 
-### Multiple maps!  
+### Multiple maps!
 
-**[Pause to ponder:]** are we bothered by the warning about many-to-many when you run the code below?
+**\[Pause to ponder:\]** are we bothered by the warning about many-to-many when you run the code below?
 
->>No, the many-to-many warning is expected due to aggregating vaccination data over time for each state, and it aligns with the analysis process.
+> > No, the many-to-many warning is expected due to aggregating vaccination data over time for each state, and it aligns with the analysis process.
 
 ```{r}
 #| message: false
@@ -216,7 +211,6 @@ weekly_vacc |>
   theme(legend.position = "bottom") 
 ```
 
-
 ### Other cool state maps
 
 #### statebin (square representation of states)
@@ -236,11 +230,11 @@ vacc_mar13 |>
   labs(fill = "People Vaccinated per 100")
 ```
 
-**[Pause to ponder:]** Why might one use a map like above instead of our previous choropleth maps?
+**\[Pause to ponder:\]** Why might one use a map like above instead of our previous choropleth maps?
 
->>One might use a statebin map instead of choropleth maps to better highlight small states, particularly those on the East Coast, and to mitigate the visual bias caused by large states with small populations, ensuring a more equitable visual representation.
+> > One might use a statebin map instead of choropleth maps to better highlight small states, particularly those on the East Coast, and to mitigate the visual bias caused by large states with small populations, ensuring a more equitable visual representation.
 
-I used [this example](https://livefreeordichotomize.com/2021/04/07/nytimes-map-how-to/) to create the code above.  The original graph is located [here](https://www.nytimes.com/interactive/2021/04/06/us/variants-cases-spread.html)
+I used [this example](https://livefreeordichotomize.com/2021/04/07/nytimes-map-how-to/) to create the code above. The original graph is located [here](https://www.nytimes.com/interactive/2021/04/06/us/variants-cases-spread.html)
 
 ### Interactive map with leaflet
 
@@ -252,14 +246,12 @@ library(leaflet)
 airbnb.df <- read_csv("https://proback.github.io/264_fall_2024/Data/airbnbData_full.csv") 
 ```
 
-Leaflet is a powerful open-source JavaScript library for building interactive maps in HTML.  Although the commands are different, the architecture is very similar to ggplot2. However, instead of putting data-based layers on top of a static map, leaflet allows you to put data-based layers on top of an interactive map.  Because leaflet renders as HTML to allow interactivity, they are less effective as static pdfs.
+Leaflet is a powerful open-source JavaScript library for building interactive maps in HTML. Although the commands are different, the architecture is very similar to ggplot2. However, instead of putting data-based layers on top of a static map, leaflet allows you to put data-based layers on top of an interactive map. Because leaflet renders as HTML to allow interactivity, they are less effective as static pdfs.
 
-With leaflet, you can have "pop-up" messages when you hover over points, and have a zoom-in and zoom-out option. 
+With leaflet, you can have "pop-up" messages when you hover over points, and have a zoom-in and zoom-out option.
 
-Two main features:
-   `addTiles()` = Add background map
-   `setView()` =  Set where the map should originally zoom to
-   
+Two main features: `addTiles()` = Add background map `setView()` = Set where the map should originally zoom to
+
 ```{r}
 # This part is for the pop-up messages.... some are weird or just "\n" for example, so this turns the weird stuff to blanks. We could also probably do this with str_ functions.
 Encoding( x = airbnb.df$AboutListing ) <- "UTF-8"
@@ -286,12 +278,11 @@ leaflet() |>
         fillColor = "yellow")
 ```
 
-
 ### On Your Own
 
-The `states` dataset in the `poliscidata` package contains 135 variables on each of the 50 US states.  See [here](https://rdrr.io/cran/poliscidata/man/states.html) for more detail.
+The `states` dataset in the `poliscidata` package contains 135 variables on each of the 50 US states. See [here](https://rdrr.io/cran/poliscidata/man/states.html) for more detail.
 
-Your task is to create a two meaningful choropleth plots, one using a numeric variable and one using a categorical variable from `states`.  Write a sentence or two describing what you can learn from each plot.
+Your task is to create a two meaningful choropleth plots, one using a numeric variable and one using a categorical variable from `states`. Write a sentence or two describing what you can learn from each plot.
 
 Here's some R code to get you going:
 
@@ -340,4 +331,3 @@ ggplot(marijuana_policy_data, aes(x = long, y = lat, group = group, fill = pot_p
   theme_void() +
   theme(legend.position = "right")
 ```
-
