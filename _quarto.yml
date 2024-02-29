@@ -3,23 +3,22 @@ project:
   output-dir: docs
 
 website:
-  title: "temp_webpage"
+  title: "Louise Rosenbaum"
   navbar:
     left:
-      - href: index.qmd
+      - file: index.qmd
         text: Home
-      - about.qmd
-      - projects.qmd
+      - file: projects.qmd
+      - file: hw.qmd
+      - sidebar:maps
 
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-
-editor: visual
-
-page-footer:
+  sidebar:
+    - id: maps
+      title: "Maps"
+      contents:
+        - need to upload information
+ 
+  page-footer:
     left: |
       &copy; Louise Rosenbaum, 2024<br>
       All content licensed under <i class='bi-badge-cc'></i>
@@ -27,6 +26,11 @@ page-footer:
     right: |
       Site built with <a href='https://quarto.org/'>Quarto</a>
 
+format:
+  html:
+    theme: journal
+    css: styles.css
+    toc: true
+    code-overflow: wrap
 
-
-
+editor: visual
