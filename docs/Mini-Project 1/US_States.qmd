@@ -8,16 +8,18 @@ editor_options:
 ```{r, include=FALSE}
 library(readr)
 library(tidyverse)
-library(maps)
 library(poliscidata)
 ```
 
 ```{r, include=FALSE}
+library(maps)
 us_states <- map_data("state")
+head(us_states)
 
-state_population<-state_pop|>
-  mutate(state=str_to_lower(state))|>
-  select(state, pop2024)
+state_data <- as_tibble(poliscidata::states) |>
+  mutate(state_name = str_squish(str_to_lower(as.character(state)))) |>
+  select(-state)
+print(state_data, n = 5, width = Inf)
 ```
 
 ```{r, echo=FALSE, message=FALSE}
