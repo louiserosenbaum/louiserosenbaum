@@ -14,9 +14,9 @@ website:
 
   sidebar:
     - id: maps
-      title: "Maps"
+      title: "Maps Project"
       contents:
-        - need to upload information
+        - US_States.qmd
  
   page-footer:
     left: |
