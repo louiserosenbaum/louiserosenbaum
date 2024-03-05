@@ -8,14 +8,21 @@ editor_options:
 ```{r, include=FALSE}
 library(readr)
 library(tidyverse)
-state_pop <-read_csv("~/RStudio/state-population-table.csv")
+library(maps)
+library(poliscidata)
 ```
 
-```{r}
-# Join the map data with unemployment rates
+```{r, include=FALSE}
+us_states <- map_data("state")
+
+state_population<-state_pop|>
+  mutate(state=str_to_lower(state))|>
+  select(state, pop2024)
+```
+
+```{r, echo=FALSE, message=FALSE}
 unemployment_data <- left_join(us_states, state_data, by = c("region" = "state_name"))
 
-# Create the choropleth plot for unemployment rates
 ggplot(unemployment_data, aes(x = long, 
                               y = lat, 
                               group = group, 
@@ -29,4 +36,3 @@ ggplot(unemployment_data, aes(x = long,
   theme_void() +
   theme(legend.position = "right")
 ```
----
