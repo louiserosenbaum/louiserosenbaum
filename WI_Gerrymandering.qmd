@@ -1,5 +1,5 @@
 ---
-title: "WI Gerrymandering"
+title: "Wisconsin Gerrymandering"
 author: "Louise Rosenbaum"
 sidebar: false
 editor_options: 
