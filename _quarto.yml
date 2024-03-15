@@ -11,9 +11,11 @@ website:
       - file: projects.qmd
       - sidebar:maps
 
-sidebar:
+  sidebar:
     - id: maps
       title: "Maps Project"
+      contents:
+        - WI_Gerrymandering.qmd
 
 format:
   html:
