@@ -3,7 +3,7 @@ title: "Louise Rosenbaum"
 about:
   id: intro-heading
   template: trestles
-  image: images/profile_pic.jpg
+  image: images/profile-pic.jpg
   image-shape: round
   links:
     - icon: envelope
