@@ -1,6 +1,5 @@
 ---
 title: "Wisconsin Gerrymandering"
-author: "Louise Rosenbaum"
 sidebar: false
 editor_options: 
   chunk_output_type: console
