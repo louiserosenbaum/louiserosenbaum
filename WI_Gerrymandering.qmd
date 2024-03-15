@@ -5,7 +5,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 library(tidyverse)
 library(sf)
 library(fec16)
@@ -18,14 +18,14 @@ library(prettymapr)
 library(readr)
 ```
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 results_house |>
   group_by(state, district_id) |>
   summarize(N = n()) |>
   print(n=Inf)
 ```
 
-```{r}
+```{r, include = FALSE}
 district_elections <- results_house |>
   mutate(district = parse_number(district_id)) |>
   group_by(state, district) |>
@@ -45,7 +45,7 @@ district_elections <- results_house |>
   select(-state)
 ```
 
-```{r}
+```{r, include = FALSE}
 src <- "http://cdmaps.polisci.ucla.edu/shp/districts113.zip"
 lcl_zip <- fs::path(tempdir(), "districts113.zip")
 download.file(src, destfile = lcl_zip)
@@ -62,7 +62,7 @@ wi_shp <- districts |>
   inner_join(district_elections, by = c("DISTRICT" = "district"))
 ```
 
-```{r}
+```{r, include = FALSE}
 ggplot(data = wi_shp, aes(fill = winner)) +
   annotation_map_tile(zoom = 6, type = "osm", progress = "none") + 
   geom_sf(alpha = 0.5) +
@@ -71,7 +71,7 @@ ggplot(data = wi_shp, aes(fill = winner)) +
   theme_void()
 ```
 
-```{r}
+```{r, echo = FALSE}
 pal <- colorNumeric(palette = "RdBu", domain = c(0, 1))
 
 leaflet(wi_shp) |>
@@ -84,3 +84,5 @@ leaflet(wi_shp) |>
   setView(lng = -90, lat = 45, zoom = 6) |>
   addControl(html = '<h2 style="text-align: center;">2016 WI Congressional Districts</h2>', position = "topright")
 ```
+
+This map is a choropleth visualization of the 2016 election results by congressional district in Wisconsin, with districts won by Democrats colored in blue and those won by Republicans in red. It overlays detailed district boundaries on a base map that includes geographical features. Each district is labeled with its number, offering a straightforward view of political distribution across the state without varying color intensity. This presentation allows for easy identification of political leanings in different areas.
