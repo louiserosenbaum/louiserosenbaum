@@ -9,22 +9,11 @@ website:
       - file: index.qmd
         text: Home
       - file: projects.qmd
-      - file: hw.qmd
       - sidebar:maps
 
-  sidebar:
+sidebar:
     - id: maps
       title: "Maps Project"
-      contents:
-        - US_States.qmd
- 
-  page-footer:
-    left: |
-      &copy; Louise Rosenbaum, 2024<br>
-      All content licensed under <i class='bi-badge-cc'></i>
-      [(CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
-    right: |
-      Site built with <a href='https://quarto.org/'>Quarto</a>
 
 format:
   html:
