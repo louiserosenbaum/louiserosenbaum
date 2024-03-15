@@ -1,5 +1,6 @@
 ---
-title: "WI_Gerrymandering"
+title: "WI Gerrymandering"
+author: "Louise Rosenbaum"
 sidebar: false
 editor_options: 
   chunk_output_type: console
