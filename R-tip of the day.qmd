@@ -1,0 +1,144 @@
+---
+title: "R-tip of the day"
+---
+
+```{r}
+library(plotly)
+
+fig <- plot_ly(
+    type = "sankey",
+    orientation = "h",
+
+    node = list(
+      label = c("A1", "A2", "B1", "B2", "C1", "C2"),
+      color = c("blue", "blue", "blue", "blue", "blue", "blue"),
+      pad = 15,
+      thickness = 20,
+      line = list(
+        color = "black",
+        width = 0.5
+      )
+    ),
+
+    link = list(
+      source = c(0,1,0,2,3,3),
+      target = c(2,3,3,4,4,5),
+      value =  c(8,4,2,8,4,2)
+    )
+  )
+fig <- fig %>% layout(
+    title = "Basic Sankey Diagram",
+    font = list(
+      size = 10
+    )
+)
+
+fig
+```
+
+```{r}
+library(plotly)
+
+# Create a sample dataset representing migration flow between countries
+migration_data <- data.frame(
+  source = c("USA", "USA", "USA", "UK", "UK", "UK", "Germany", "Germany", "Germany"),
+  target = c("Canada", "Mexico", "Germany", "Canada", "USA", "France", "UK", "USA", "France"),
+  value = c(5000, 2000, 1000, 3000, 4000, 2000, 4000, 3000, 1000)
+)
+
+# Plot the Sankey diagram
+fig <- plot_ly(
+  type = "sankey",
+  orientation = "h",
+  node = list(
+    label = c(unique(migration_data$source), unique(migration_data$target)),
+    color = rep(c("blue", "orange"), times = c(length(unique(migration_data$source)), length(unique(migration_data$target)))),
+    pad = 15,
+    thickness = 20,
+    line = list(
+      color = "black",
+      width = 0.5
+    )
+  ),
+  link = list(
+    source = match(migration_data$source, c(unique(migration_data$source), unique(migration_data$target))) - 1,
+    target = match(migration_data$target, c(unique(migration_data$source), unique(migration_data$target))) - 1 + length(unique(migration_data$source)),
+    value = migration_data$value
+  )
+)
+
+fig <- fig %>% layout(
+  title = "Migration Flow between Countries",
+  font = list(
+    size = 10
+  )
+)
+
+fig
+```
+
+```{r}
+fig <- plot_ly(
+    type = "sankey",
+    domain = list(
+      x =  c(0,1),
+      y =  c(0,1)
+    ),
+    orientation = "h",
+    valueformat = ".0f",
+    valuesuffix = "TWh"
+)
+fig <- fig %>% layout(
+    title = "Energy forecast for 2050, UK - Department of Energy & Climate Change",
+    font = list(
+      size = 10
+    ),
+    xaxis = list(showgrid = F, zeroline = F),
+    yaxis = list(showgrid = F, zeroline = F)
+  )
+```
+
+```{r}
+library(plotly)
+library(rjson)
+
+json_file <- "https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json"
+json_data <- fromJSON(paste(readLines(json_file), collapse = ""))
+
+fig <- plot_ly(
+  type = "sankey",
+  domain = list(
+    x = c(0, 1),
+    y = c(0, 1)),
+  orientation = "h",
+  valueformat = ".0f",
+  valuesuffix = "TWh",
+
+  node = list(
+    label = json_data$data[[1]]$node$label,
+    color = json_data$data[[1]]$node$color,
+    pad = 15,
+    thickness = 15,
+    line = list(
+      color = "black",
+      width = 0.5)),
+
+  link = list(
+    source = json_data$data[[1]]$link$source,
+    target = json_data$data[[1]]$link$target,
+    value = json_data$data[[1]]$link$value,
+    label = json_data$data[[1]]$link$label)) 
+
+fig <- fig %>% layout(
+  title = "Energy forecast for 2050<br>Source: Department of Energy & Climate Change, Tom Counsell via <a href='https://bost.ocks.org/mike/sankey/'>Mike Bostock</a>",
+  font = list(size = 10),
+  xaxis = list(showgrid = FALSE, zeroline = FALSE),
+  yaxis = list(showgrid = FALSE, zeroline = FALSE))
+
+fig
+```
+```{r}
+install.packages("sankeywheel")
+DT::datatable(sankeydf)
+```
+
