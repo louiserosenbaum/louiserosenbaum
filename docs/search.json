@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "R-tip of the day.html",
+    "href": "R-tip of the day.html",
+    "title": "R-tip of the day",
+    "section": "",
+    "text": "library(plotly)\n\nLoading required package: ggplot2\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\nfig &lt;- plot_ly(\n    type = \"sankey\",\n    orientation = \"h\",\n\n    node = list(\n      label = c(\"A1\", \"A2\", \"B1\", \"B2\", \"C1\", \"C2\"),\n      color = c(\"blue\", \"green\", \"red\", \"orange\", \"white\", \"black\"),\n      pad = 15,\n      thickness = 20,\n      line = list(\n        color = \"black\",\n        width = 0.5)),\n\n    link = list(\n      source = c(0,1,0,2,3,3),\n      target = c(2,3,3,4,4,5),\n      value =  c(8,4,2,8,4,2)))\nfig &lt;- fig %&gt;% layout(\n    title = \"Basic Sankey Diagram\",\n    font = list(\n      size = 10))\n\nfig\n\n\n\n\n\n\nlibrary(plotly)\n\n# Create a sample dataset representing migration flow between countries\nmigration_data &lt;- data.frame(\n  source = c(\"USA\", \"USA\", \"USA\", \"UK\", \"UK\", \"UK\", \"Germany\", \"Germany\", \"Germany\"),\n  target = c(\"Canada\", \"Mexico\", \"Germany\", \"Canada\", \"USA\", \"France\", \"UK\", \"USA\", \"France\"),\n  value = c(5000, 2000, 1000, 3000, 4000, 2000, 4000, 3000, 1000)\n)\n\n# Plot the Sankey diagram\nfig &lt;- plot_ly(\n  type = \"sankey\",\n  orientation = \"h\",\n  node = list(\n    label = c(unique(migration_data$source), unique(migration_data$target)),\n    color = rep(c(\"blue\", \"orange\"), times = c(length(unique(migration_data$source)), length(unique(migration_data$target)))),\n    pad = 15,\n    thickness = 20,\n    line = list(\n      color = \"black\",\n      width = 0.5\n    )\n  ),\n  link = list(\n    source = match(migration_data$source, c(unique(migration_data$source), unique(migration_data$target))) - 1,\n    target = match(migration_data$target, c(unique(migration_data$source), unique(migration_data$target))) - 1 + length(unique(migration_data$source)),\n    value = migration_data$value\n  )\n)\n\nfig &lt;- fig %&gt;% layout(\n  title = \"Migration Flow between Countries\",\n  font = list(\n    size = 10\n  )\n)\n\nfig\n\n\n\n\n\n\nfig &lt;- plot_ly(\n    type = \"sankey\",\n    domain = list(\n      x =  c(0,1),\n      y =  c(0,1)\n    ),\n    orientation = \"h\",\n    valueformat = \".0f\",\n    valuesuffix = \"TWh\"\n)\nfig &lt;- fig %&gt;% layout(\n    title = \"Energy forecast for 2050, UK - Department of Energy & Climate Change\",\n    font = list(\n      size = 10\n    ),\n    xaxis = list(showgrid = F, zeroline = F),\n    yaxis = list(showgrid = F, zeroline = F)\n  )\n\n\nlibrary(plotly)\nlibrary(rjson)\n\njson_file &lt;- \"https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json\"\njson_data &lt;- fromJSON(paste(readLines(json_file), collapse = \"\"))\n\nfig &lt;- plot_ly(\n  type = \"sankey\",\n  domain = list(\n    x = c(0, 1),\n    y = c(0, 1)),\n  orientation = \"h\",\n  valueformat = \".0f\",\n  valuesuffix = \"TWh\",\n\n  node = list(\n    label = json_data$data[[1]]$node$label,\n    color = json_data$data[[1]]$node$color,\n    pad = 15,\n    thickness = 15,\n    line = list(\n      color = \"black\",\n      width = 0.5)),\n\n  link = list(\n    source = json_data$data[[1]]$link$source,\n    target = json_data$data[[1]]$link$target,\n    value = json_data$data[[1]]$link$value,\n    label = json_data$data[[1]]$link$label)) \n\nfig &lt;- fig %&gt;% layout(\n  title = \"Energy forecast for 2050&lt;br&gt;Source: Department of Energy & Climate Change, Tom Counsell via &lt;a href='https://bost.ocks.org/mike/sankey/'&gt;Mike Bostock&lt;/a&gt;\",\n  font = list(size = 10),\n  xaxis = list(showgrid = FALSE, zeroline = FALSE),\n  yaxis = list(showgrid = FALSE, zeroline = FALSE))\n\nfig\n\n\n\n\n\n\nlibrary(sankeywheel)\n\nHighcharts (www.highcharts.com) is a Highsoft software product which is\n\n\nnot free for commercial and governmental use.\n\nDT::datatable(sankeydf)\n\n\n\n\n\nsankeywheel(from = sankeydf$from,\n            to = sankeydf$to,\n            weight = sankeydf$weight,\n            type = \"sankey\", \n            width = \"100%\")"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -12,6 +19,13 @@
     "title": "Projects",
     "section": "",
     "text": "I’ll put projects from Data Science 2 here!\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "WI_Gerrymandering.html",
+    "href": "WI_Gerrymandering.html",
+    "title": "Wisconsin Gerrymandering",
+    "section": "",
+    "text": "This map is a choropleth visualization of the 2016 election results by congressional district in Wisconsin, with districts won by Democrats colored in blue and those won by Republicans in red. It overlays detailed district boundaries on a base map that includes geographical features. Each district is labeled with its number, offering a straightforward view of political distribution across the state without varying color intensity. This map allows for easy identification of political leanings in different areas."
   },
   {
     "objectID": "index.html",
@@ -28,10 +42,10 @@
     "text": "Political Science and Psychology Student  St. Olaf College\n\n\nBachelor of Arts (B.A.) in Psychology and Political Science\nConcentrations in International Relations\nGraduation 2024 | St. Olaf College\nHigh School Diploma 2020 | Orono High School\n\n\n\nVolunteer | The Advocates for Human Rights | January 2023-present\nWomen’s Rights and International Justice Intern | The Advocates for Human Rights | May 2023-September 2023\nRetail Specialist | Recreation Equipment Inc. (REI) | August 2022-December 2022\n\n\n\nModel UN - President\nAlpha Phi Omega (APO) - Vice President\nChapel Choir: Soprano 2"
   },
   {
-    "objectID": "WI_Gerrymandering.html",
-    "href": "WI_Gerrymandering.html",
-    "title": "WI_Gerrymandering",
+    "objectID": "US_State_Pop.html",
+    "href": "US_State_Pop.html",
+    "title": "US States Castles",
     "section": "",
-    "text": "This map is a choropleth visualization of the 2016 election results by congressional district in Wisconsin, with districts won by Democrats colored in blue and those won by Republicans in red. It overlays detailed district boundaries on a base map that includes geographical features. Each district is labeled with its number, offering a straightforward view of political distribution across the state without varying color intensity. This presentation allows for easy identification of political leanings in different areas."
+    "text": "state_population &lt;- state_pop |&gt; mutate(state = str_to_lower(state)) |&gt; right_join(us_states, by = c(“state” = “region”))\nstate_population |&gt; ggplot(mapping = aes(x = long, y = lat, group = group)) + geom_polygon(aes(fill = NumberOfCastlesState), color = “black”) + scale_fill_viridis_b(option = “C”) + labs(fill = “Castles per Million People”, title = “Castle Density per Million People in Each State”)"
   }
 ]

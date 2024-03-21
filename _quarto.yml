@@ -16,6 +16,7 @@ website:
       title: "Maps Project"
       contents:
         - WI_Gerrymandering.qmd
+        - US_State_Pop.qmd
 
 format:
   html:

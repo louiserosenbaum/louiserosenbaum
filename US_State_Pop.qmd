@@ -1,0 +1,30 @@
+---
+title: "US States Castles"
+sidebar: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include=FALSE}
+library(readr)
+library(tidyverse)
+library(maps)
+
+castle_data <- read_csv("castles-by-state-2024.csv")
+us_states <- map_data("state")
+```
+
+
+```{r, echo = FALSE}
+state_population <- state_pop |>
+  mutate(state = str_to_lower(state)) |>
+  right_join(us_states, by = c("state" = "region")) 
+
+state_population |>
+  ggplot(mapping = aes(x = long, 
+                       y = lat, 
+                       group = group)) +
+  geom_polygon(aes(fill = NumberOfCastlesState), color = "black")  +
+  scale_fill_viridis_b(option = "C") +
+  labs(fill = "Castles per Million People", 
+       title = "Castle Density per Million People in Each State")
