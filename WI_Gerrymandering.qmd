@@ -85,4 +85,6 @@ leaflet(wi_shp) |>
   addControl(html = '<h2 style="text-align: center;">2016 WI Congressional Districts</h2>', position = "topright")
 ```
 
+### WI Gerrymandering
+
 This map is a choropleth visualization of the 2016 election results by congressional district in Wisconsin, with districts won by Democrats colored in blue and those won by Republicans in red. It overlays detailed district boundaries on a base map that includes geographical features. Each district is labeled with its number, offering a straightforward view of political distribution across the state without varying color intensity. This map allows for easy identification of political leanings in different areas.

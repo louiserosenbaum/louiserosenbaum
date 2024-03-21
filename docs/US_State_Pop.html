@@ -138,8 +138,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>state_population &lt;- state_pop |&gt; mutate(state = str_to_lower(state)) |&gt; right_join(us_states, by = c(“state” = “region”))</p>
-<p>state_population |&gt; ggplot(mapping = aes(x = long, y = lat, group = group)) + geom_polygon(aes(fill = NumberOfCastlesState), color = “black”) + scale_fill_viridis_b(option = “C”) + labs(fill = “Castles per Million People”, title = “Castle Density per Million People in Each State”)</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="US_State_Pop_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 
