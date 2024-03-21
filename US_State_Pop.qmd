@@ -15,7 +15,7 @@ us_states <- map_data("state")
 ```
 
 ```{r, echo = FALSE}
-state_population <- state_pop |>
+state_population <- castle_data |>
   mutate(state = str_to_lower(state)) |>
   right_join(us_states, by = c("state" = "region")) 
 
@@ -25,7 +25,10 @@ state_population |>
                        group = group)) +
   geom_polygon(aes(fill = NumberOfCastlesState), color = "black")  +
   scale_fill_viridis_b(option = "C") +
-  labs(fill = "Castles per Million People", 
-       title = "Castle Density per Million People in Each State")
+  labs(fill = "Castles per State", 
+       title = "Number of Castles in Each State")
 ```
 
+### US Castle Graph
+
+This graph displays the distribution of castles across the United States by state, using a color gradient to indicate the quantity. States are outlined in black and filled with colors ranging from light to dark, with lighter shades representing a higher number of castles. The legend, labeled 'Castles per State,' correlates the colors with the number of castles. Notably, New York leads with 26 castles, followed by California with 20, and Texas with 18. The visualization is based on data collected in 2024, presented on a map of the US, emphasizing the geographic spread of historical castles. 
