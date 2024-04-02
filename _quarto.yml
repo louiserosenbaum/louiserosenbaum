@@ -8,7 +8,7 @@ website:
     left:
       - file: index.qmd
         text: Home
-      - file: projects.qmd
+      - file: mini_project2.qmd
       - sidebar:maps
 
   sidebar:

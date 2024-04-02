@@ -11,12 +11,13 @@ library(tidyverse)
 data("FGByDistance")
 ```
 
-###Field Goal Success by Distance in the NFL
+### Field Goal Success by Distance in the NFL
+
 For this project, I explored the FGByDistance dataset, which includes results of NFL field goal attempts by distance. This dataset provides a unique insight into how the distance of a field goal attempt influences its success rate, offering valuable data for teams to strategize their play.
 
 The objective of this study is to simulate field goal success rates under the null hypothesis that distance does not affect success rates. This involves randomizing distance categories and observing how these simulated conditions compare with actual data.
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 fg_summary <- FGByDistance %>%
   group_by(Dist) %>%
   summarize(TotalAttempts = sum(N), 
@@ -27,7 +28,7 @@ fg_summary <- FGByDistance %>%
 observed_diffs <- diff(fg_summary$SuccessRate)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 # Function to simulate success rates
 simulate_success_rates <- function(data, n_simulations = 1000) {
   simulated_diffs <- numeric(n_simulations)
@@ -60,7 +61,7 @@ As observed, the p-value calculated from our simulation suggests that the differ
 
 _____________________________________________________________
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 summary(FGByDistance)
 str(FGByDistance)
 
