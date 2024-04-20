@@ -1,0 +1,50 @@
+---
+title: "Mini Project 3"
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+
+length_restrictions <- read_csv("length_restrictions.csv")
+```
+### Plot 1: Length Restrictions
+
+```{r}
+length_restrictions |>
+  mutate(TextLength = str_length(length))
+
+ggplot(length_restrictions, aes(x = length)) +
+  geom_bar(fill = "blue", color = "black") +
+  labs(title = "Frequency of Text Length Descriptions", x = "Text Length Description", y = "Frequency") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+```{r}
+length_restrictions <- length_restrictions %>%
+  mutate(
+    normalized_length = case_when(
+      str_detect(length, "inches from knee") ~ "shorter than x inches from knee",
+      str_detect(length, "inch inseam") ~ "shorter than x inch inseam",
+      str_detect(length, "fingertips") ~ "shorter than fingertips",
+      str_detect(length, "kneecap") ~ "top of the kneecap",
+      str_detect(length, "prohibited") ~ "prohibited",
+      TRUE ~ "Other"  # Catch-all for any descriptions not matched
+    )
+  ) %>%
+  filter(normalized_length != "Other")  # Exclude "Other" from the dataset
+
+# Summarize the data
+length_summary <- length_restrictions %>%
+  count(normalized_length, sort = TRUE)  # Count occurrences and sort by frequency
+
+# Plotting the summarized data
+ggplot(length_summary, aes(x = normalized_length, y = n, fill = normalized_length)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Frequency of Text Length Descriptions", x = "Text Length Description", y = "Frequency") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12)) +
+  scale_fill_brewer(palette = "Paired")  # Enhancing visual appeal with a color palette
+
+```
+
