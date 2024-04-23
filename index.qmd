@@ -10,6 +10,8 @@ about:
       href: mailto:rosenb3@stolaf.edu
     - icon: github
       href: https://github.com/louiserosenbaum
+    - icon: linkedin
+      href: https://www.linkedin.com/in/louise-rosenbaum/
 ---
 
 ::: {#intro-heading}
