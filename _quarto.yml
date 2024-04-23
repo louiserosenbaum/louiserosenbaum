@@ -8,12 +8,13 @@ website:
     left:
       - file: index.qmd
         text: Home
-      - file: mini_project2.qmd
       - sidebar:maps
+      - file: mini_project2.qmd
+      - file: mini_project3.qmd
 
   sidebar:
     - id: maps
-      title: "Maps Project"
+      title: "Mini Project 1 - Maps Project"
       contents:
         - WI_Gerrymandering.qmd
         - US_State_Pop.qmd

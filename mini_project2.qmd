@@ -57,32 +57,6 @@ ggplot() +
   annotate("text", x = median(simulated_diffs), y = 10, label = paste("P-value:", round(p_value, 4)), vjust = -1)
 ```
 
-```{r}
-success_rate_for_fg |>
-  for(i in 1:1000) {
-    sample (fg_summary, replace = TRUE) 
-    #fit model 
-    lm(succ ~ distance, data = Dist) |>
-      
-    calculate distance 
-    store dist
-  }
-
-m1 <- lm(SuccessRate ~ Dist, data = fg_summary)
-summary(m1)
-int <- m1$coefficients[1]
-slope <- m1$coefficients[2]
-int
-slope
-dist_belowhalf <- (.50 - int) / slope
-dist_belowhalf
-
-ggplot() +
-  geom_histogram(aes(1000 distance)) +
-  quantile(dist, .025, .0975) 
-```
-
-
 As observed, the p-value calculated from our simulation suggests that the difference in field goal success rates by distance can (or cannot) be attributed to random variation. If the p-value is less than 0.05, we consider the effect of distance on success rates to be statistically significant. This analysis helps in understanding how distance might affect a team's decision-making process regarding field goal attempts.
 
 _____________________________________________________________

@@ -1,50 +1,199 @@
 ---
 title: "Mini Project 3"
+sidebar: false
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
+library(viridis)
+library(wordcloud)
+library(maps)
+library(dplyr)
+library(readr)
 
 length_restrictions <- read_csv("length_restrictions.csv")
 ```
-### Plot 1: Length Restrictions
 
-```{r}
-length_restrictions |>
-  mutate(TextLength = str_length(length))
+This project utilizes data from the GitHub repository "the-pudding/data," focusing on dress codes across 481 public high schools in the U.S. 
 
-ggplot(length_restrictions, aes(x = length)) +
-  geom_bar(fill = "blue", color = "black") +
-  labs(title = "Frequency of Text Length Descriptions", x = "Text Length Description", y = "Frequency") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-```{r}
-length_restrictions <- length_restrictions %>%
+### Length Restrictions
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+length_restrictions <- length_restrictions |>
   mutate(
     normalized_length = case_when(
-      str_detect(length, "inches from knee") ~ "shorter than x inches from knee",
-      str_detect(length, "inch inseam") ~ "shorter than x inch inseam",
-      str_detect(length, "fingertips") ~ "shorter than fingertips",
-      str_detect(length, "kneecap") ~ "top of the kneecap",
-      str_detect(length, "prohibited") ~ "prohibited",
-      TRUE ~ "Other"  # Catch-all for any descriptions not matched
+      str_detect(length, "mid-thigh") ~ str_c("Mid", "-", "Thigh"),
+      str_detect(length, "inappropriate length") ~ "Inappropriate Length",
+      str_detect(length, "fingertips") ~ str_c("To", " ", "Fingertips"),
+      str_detect(length, "x inches from knee") ~ str_c("Measured", " ", "from Knee"),
+      str_detect(length, "x inch inseam") ~ str_c("Inseam", " ", "Measurement"),
+      str_detect(length, "the knee") ~ str_c("To", " ", "the Knee"),
+      TRUE ~ "Other"  # Catch-all category
     )
-  ) %>%
-  filter(normalized_length != "Other")  # Exclude "Other" from the dataset
+  )
 
-# Summarize the data
-length_summary <- length_restrictions %>%
-  count(normalized_length, sort = TRUE)  # Count occurrences and sort by frequency
+# Count occurrences
+length_summary <- length_restrictions |>
+  group_by(limits, normalized_length) |>
+  summarise(count = n(), .groups = "drop") |>
+  filter(count > 5)
 
-# Plotting the summarized data
-ggplot(length_summary, aes(x = normalized_length, y = n, fill = normalized_length)) +
-  geom_bar(stat = "identity", color = "black") +
-  labs(title = "Frequency of Text Length Descriptions", x = "Text Length Description", y = "Frequency") +
+# Plotting the data
+ggplot(length_summary, aes(x = limits, y = count, fill = normalized_length)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = "Dress Code Descriptions by Garment Type",
+       x = "Garment Type",
+       y = "Count",
+       fill = "Restriction Type") +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12)) +
-  scale_fill_brewer(palette = "Paired")  # Enhancing visual appeal with a color palette
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_viridis_d()
+```
+
+This visualization categorizes various length restrictions applied to gender-specific clothing items such as dresses, shorts, skirts, and skorts. The bar chart illustrates the frequency of each type of restriction, providing insight into the prevalence of specific dress code standards. The most commonly observed restriction is "to the fingertips," indicating a widespread adherence to this particular measurement in school dress codes. This analysis sheds light on the uniformity and specificity of length regulations, reflecting broader cultural norms and expectations within educational settings.
+
+### States were there is the Most Restrictions
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+banned_items <- read_csv("banned_items.csv")
+
+us_states <- map_data("state")
+
+banned_items <- banned_items |>
+  mutate(state2 = case_when(
+    state == "AL" ~ "alabama",
+    state == "AK" ~ "alaska",
+    state == "AZ" ~ "arizona",
+    state == "AR" ~ "arkansas",
+    state == "CA" ~ "california",
+    state == "CO" ~ "colorado",
+    state == "CT" ~ "connecticut",
+    state == "DE" ~ "delaware",
+    state == "FL" ~ "florida",
+    state == "GA" ~ "georgia",
+    state == "HI" ~ "hawaii",
+    state == "ID" ~ "idaho",
+    state == "IL" ~ "illinois",
+    state == "IN" ~ "indiana",
+    state == "IA" ~ "iowa",
+    state == "KS" ~ "kansas",
+    state == "KY" ~ "kentucky",
+    state == "LA" ~ "louisiana",
+    state == "ME" ~ "maine",
+    state == "MD" ~ "maryland",
+    state == "MA" ~ "massachusetts",
+    state == "MI" ~ "michigan",
+    state == "MN" ~ "minnesota",
+    state == "MS" ~ "mississippi",
+    state == "MO" ~ "missouri",
+    state == "MT" ~ "montana",
+    state == "NE" ~ "nebraska",
+    state == "NV" ~ "nevada",
+    state == "NH" ~ "new hampshire",
+    state == "NJ" ~ "new jersey",
+    state == "NM" ~ "new mexico",
+    state == "NY" ~ "new york",
+    state == "NC" ~ "north carolina",
+    state == "ND" ~ "north dakota",
+    state == "OH" ~ "ohio",
+    state == "OK" ~ "oklahoma",
+    state == "OR" ~ "oregon",
+    state == "PA" ~ "pennsylvania",
+    state == "RI" ~ "rhode island",
+    state == "SC" ~ "south carolina",
+    state == "SD" ~ "south dakota",
+    state == "TN" ~ "tennessee",
+    state == "TX" ~ "texas",
+    state == "UT" ~ "utah",
+    state == "VT" ~ "vermont",
+    state == "VA" ~ "virginia",
+    state == "WA" ~ "washington",
+    state == "WV" ~ "west virginia",
+    state == "WI" ~ "wisconsin",
+    state == "WY" ~ "wyoming",
+    TRUE ~ state  # keeps other state values unchanged
+  ))
 
 ```
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+state_count <- banned_items |>
+  right_join(us_states, by = c("state2" = "region")) |>
+  group_by(state2) |>
+  summarise(count = n())
+
+state_count <- state_count |>
+  right_join(us_states, by = c("state2" = "region"))
+
+state_count |>
+  ggplot(aes(x = long, y = lat, group = group)) +
+  geom_polygon(aes(fill = count)) +
+  labs(title = "Number of Prohibited Items by State", x = NULL, y = NULL) +
+  theme_void() + 
+  scale_fill_viridis_c()
+```
+
+This map displays the distribution of dress code restrictions across various U.S. states, based on a sample of 15,144 entries detailing the strictness of these policies. The visualization merges this data with geographic information to highlight regional trends in dress code enforcement. A color gradient is used to denote the intensity of restrictions per state, offering a visual representation of regional variance in dress code severity. However, the map's accuracy is somewhat skewed due to a disproportionately large sample of 2,905 entries from Texas, resulting in a darker shade for the state compared to others.
+
+### Visualizing Banned School Clothing and Promotional Items
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+banned_items_cleaned <- banned_items %>%
+  mutate(item = str_to_lower(item),
+         item = str_replace_all(item, "[[:punct:]]", ""),
+         item = str_replace_all(item, "\\s+", " ")) %>%
+  group_by(type, item) %>%
+  summarise(count = n(), .groups = "drop")
+
+# Filter data for 'clothing'
+clothing_items <- banned_items_cleaned |>
+  filter(type == "clothing")
+
+# Filter data for 'promotion'
+promotion_items <- banned_items_cleaned |>
+  filter(type == "promotion")
+
+# Word cloud for 'clothing' items
+if(nrow(clothing_items) > 0) {
+  wordcloud(words = clothing_items$item, freq = clothing_items$count,
+            min.freq = 8, max.words = 100, random.order = FALSE,
+            rot.per = 0.35, colors = brewer.pal(8, "Blues"))
+} else {
+  cat("No data to plot for 'clothing'.\n")
+}
+
+# Word cloud for 'promotion' items
+if(nrow(promotion_items) > 0) {
+  wordcloud(words = promotion_items$item, freq = promotion_items$count,
+            min.freq = 8, max.words = 100, random.order = FALSE,
+            rot.per = 0.35, colors = brewer.pal(8, "Reds"))
+} else {
+  cat("No data to plot for 'promotion'.\n")
+}
+```
+
+This section presents two word clouds: one for banned clothing items and another for promotional items prohibited in schools. These visualizations draw on data processed to remove punctuation and spaces, ensuring accurate frequency counts. The word clouds display the most commonly banned items, with size indicating frequency. This approach not only shows what is most often banned but also gives a sense of the focus areas of school dress codes.
+
+### The Most Commonly Banned Visible Body Parts in Schools
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+body_percentages <- read.csv("body_percentages.csv")
+
+ggplot(body_percentages, aes(x = reorder(item, per), 
+                             y = per, 
+                             fill = item)) +
+  geom_bar(stat = "identity") +
+  labs(title = "The Most Commonly Banned Visible Body Parts in Schools",
+       x = "Body Part",
+       y = "Percentage of Bans") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.title = element_blank()) +
+  scale_fill_viridis_d()
+```
+
+This bar chart details the prevalence of specific body parts banned across the 481 U.S. public high schools, with a surprising emphasis on the midsection or midriff, which is prohibited in 71% of the schools surveyed. This statistic starkly contrasts with the mere 1% of schools that explicitly ban the visibility of genitals, traditionally considered more private. The focus on the midriff—the area between the chest and waist, including the stomach and belly button—raises significant cultural and social questions. Historically in Western societies, the exposure of the midriff has been viewed as taboo or indecent, a perception not inherently linked to the body part's function but rather its sexualization in cultural contexts. This chart invites reflection on how cultural norms shape school policies, often amplifying sexual tension around non-sexual body parts by making them 'forbidden' or hidden, thus perpetuating certain views on modesty and decency that primarily impact female-presenting students.
