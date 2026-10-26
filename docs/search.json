@@ -46,7 +46,7 @@
     "href": "index.html",
     "title": "Louise Rosenbaum",
     "section": "",
-    "text": "Political Science and Psychology Student  St. Olaf College\n\n\nBachelor of Arts (B.A.) in Psychology and Political Science\nConcentrations in International Relations\nGraduation 2024 | St. Olaf College\nHigh School Diploma 2020 | Orono High School\n\n\n\nVolunteer | The Advocates for Human Rights | January 2023-present\nWomen’s Rights and International Justice Intern | The Advocates for Human Rights | May 2023-September 2023\nRetail Specialist | Recreation Equipment Inc. (REI) | August 2022-December 2022\n\n\n\nModel UN - President\nAlpha Phi Omega (APO) - Vice President\nChapel Choir: Soprano 2"
+    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | 2025 to 2026 \nMarket Development Representative | Kipsu | 2024 to 2025 \nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
   },
   {
     "objectID": "index.html#louise-rosenbaum",
@@ -61,5 +61,19 @@
     "title": "US States Castles",
     "section": "",
     "text": "US Castle Graph\nThis graph displays the distribution of castles across the United States by state, using a color gradient to indicate the quantity. States are outlined in black and filled with colors ranging from light to dark, with lighter shades representing a higher number of castles. The legend, labeled ‘Castles per State,’ correlates the colors with the number of castles. Notably, New York leads with 26 castles, followed by California with 20, and Texas with 18. The visualization is based on data collected in 2024, presented on a map of the US, emphasizing the geographic spread of historical castles."
+  },
+  {
+    "objectID": "index.html#data-and-business-analyst",
+    "href": "index.html#data-and-business-analyst",
+    "title": "Louise Rosenbaum",
+    "section": "",
+    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | 2025 to 2026 \nMarket Development Representative | Kipsu | 2024 to 2025 \nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Louise Rosenbaum",
+    "section": "Projects",
+    "text": "Projects\nData Science Capstone: WNBA and NCAA Explorer Interactive R Shiny app combining WNBA and NCAA Division I data so users can build their own charts and tables.\nWisconsin Congressional Districts Mapped 2016 House results by district to show how district shapes affect representation.\nSchool Dress Codes Analyzed dress code rules from 481 U.S. high schools, including where the data’s sample skews results."
   }
 ]

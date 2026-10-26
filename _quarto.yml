@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - WI_Gerrymandering.qmd
+    - mini_project3.qmd
 
 website:
   title: "Louise Rosenbaum"
@@ -8,30 +12,26 @@ website:
     left:
       - file: index.qmd
         text: Home
-      - sidebar:maps
-      - file: mini_project2.qmd
-      - file: mini_project3.qmd
+      - text: Projects
+        menu:
+          - file: WI_Gerrymandering.qmd
+          - file: mini_project3.qmd
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/louise-rosenbaum/
+      - icon: github
+        href: https://github.com/louiserosenbaum
 
-  sidebar:
-    - id: maps
-      title: "Mini Project 1 - Maps Project"
-      contents:
-        - WI_Gerrymandering.qmd
-        - US_State_Pop.qmd
-        
   page-footer:
-    left: |
-      &copy; Louise Rosenbaum, 2024<br>
-      All content licensed under <i class='bi-badge-cc'></i>
-      [(CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
-    right: |
-      Site built with <a href='https://quarto.org/'>Quarto</a>
+    left: "&copy; Louise Rosenbaum, 2026"
+    right: "Built with [Quarto](https://quarto.org/)"
 
 format:
   html:
     theme: spacelab
     css: styles.css
     toc: true
+    code-fold: true
     code-overflow: wrap
 
 editor: visual

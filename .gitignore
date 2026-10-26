@@ -1,6 +1,7 @@
-.Rproj.user
+.DS_Store
+rosm.cache/
+.Rproj.user/
 .Rhistory
-.RData
-.Ruserdata
 
 /.quarto/
+**/*.quarto_ipynb

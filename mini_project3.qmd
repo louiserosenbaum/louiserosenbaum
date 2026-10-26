@@ -1,5 +1,5 @@
 ---
-title: "Mini Project 3"
+title: "School Dress Codes"
 sidebar: false
 editor_options: 
   chunk_output_type: console
@@ -56,7 +56,7 @@ ggplot(length_summary, aes(x = limits, y = count, fill = normalized_length)) +
 
 This visualization categorizes various length restrictions applied to gender-specific clothing items such as dresses, shorts, skirts, and skorts. The bar chart illustrates the frequency of each type of restriction, providing insight into the prevalence of specific dress code standards. The most commonly observed restriction is "to the fingertips," indicating a widespread adherence to this particular measurement in school dress codes. This analysis sheds light on the uniformity and specificity of length regulations, reflecting broader cultural norms and expectations within educational settings.
 
-### States were there is the Most Restrictions
+### States with the Most Restrictions
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 banned_items <- read_csv("banned_items.csv")

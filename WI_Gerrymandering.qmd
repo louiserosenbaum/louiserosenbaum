@@ -81,8 +81,9 @@ leaflet(wi_shp) |>
     color = ~pal(1 - r_prop),
     popup = ~paste("District", DISTRICT, "</br>", "Proportion Republican Votes", round(r_prop, 4))
   ) |>
-  setView(lng = -90, lat = 45, zoom = 6) |>
-  addControl(html = '<h2 style="text-align: center;">2016 WI Congressional Districts</h2>', position = "topright")
+  setView(lng = -89.9, lat = 44.7, zoom = 7) |>
+  addLegend(pal = pal, values = c(0, 1), position = "bottomright",
+            title = "Dem vote share", labFormat = labelFormat(suffix = "%", transform = function(x) 100 * x))
 ```
 
 ### WI Gerrymandering
