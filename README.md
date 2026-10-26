@@ -1,31 +1,30 @@
 # Louise Rosenbaum
-**Data and Reporting Analyst** | Minneapolis, MN
 
----
+**Data and Business Analyst** | Minneapolis, MN
 
-## About Me
-I'm a data and reporting analyst who turns data into clear, actionable insight. 
-My day-to-day work is in **SQL**, **Power BI**, and **Tableau**, complemented by 
-an academic foundation in applied data science using **R**.
+I work where business teams and their data meet: pulling data with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I'm looking for data analyst and business analyst roles.
 
-I focus on building reliable reporting, creating clear visualizations, and 
-investigating data to support business decisions. Most of my professional 
-reporting and data-systems work lives outside GitHub; this profile is a home 
-for my academic and personal projects.
+**Portfolio site:** [louiserosenbaum.github.io/louiserosenbaum](https://louiserosenbaum.github.io/louiserosenbaum/)
 
-## Technical Skills
-- **SQL** – Data extraction, transformation, and validation; data quality
-- **Business Intelligence** – Power BI and Tableau (dashboards, data modeling, storytelling)
-- **R** – Data wrangling, visualization, and interactive applications (Shiny)
-- **Applied Data Science (academic)** – Exploratory data analysis, regression, 
-  and classification; modeling concepts from coursework
+## Recent work
 
-## Featured Projects
-- **Data Science Capstone (R/Shiny)** – An interactive Shiny application that 
-  combined WNBA and NCAA Division I datasets to generate user-driven graphs 
-  and tables; hosted live on shinyapps.io
-- **Academic data science projects** – Coursework in R covering data wrangling, 
-  visualization, and modeling
+- **Project Coordinator, Kipsu:** Used SQL in AWS Redshift to trace a recurring Hilton data-quality issue to its root cause and wrote remediation tickets for engineering. Coordinated the deployment of 150+ Hilton properties across Engineering, Product, Client Success, and the client.
+- **Market Development Representative, Kipsu:** Ran segmented outbound campaigns for senior living, higher education, and military, and wrote 8 published industry articles.
 
-## Let's Connect
-- **LinkedIn**: [linkedin.com/in/louise-rosenbaum](https://linkedin.com/in/louise-rosenbaum)
+## Skills
+
+- **SQL:** AWS Redshift; extraction, validation, and data-quality troubleshooting
+- **Business intelligence:** Tableau, Power BI
+- **Salesforce:** administration (Admin certification in progress)
+- **Python and R:** data wrangling, visualization, interactive apps (Shiny)
+- **Workflow tools:** Jira Service Management, Google Apps Script
+
+## Projects
+
+- **[Data Science Capstone: WNBA and NCAA Explorer](https://github.com/louiserosenbaum/Shiny-final-project)**: Team project (2024). R Shiny app combining WNBA and NCAA Division I data so users could build their own charts and tables.
+- **[Wisconsin Congressional Districts](https://louiserosenbaum.github.io/louiserosenbaum/WI_Gerrymandering.html)**: Interactive map of 2016 House results by district, showing how district shapes affect representation.
+- **[School Dress Codes](https://louiserosenbaum.github.io/louiserosenbaum/mini_project3.html)**: Analysis of dress code rules from 481 U.S. high schools, including where the sample skews results.
+
+## Contact
+
+[LinkedIn](https://www.linkedin.com/in/louise-rosenbaum/) · [Email](mailto:louiserosenbaum1@gmail.com)
