@@ -41,8 +41,8 @@ SQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · 
 
 ## Projects
 
-**[Data Science Capstone: WNBA and NCAA Explorer](https://YOUR-APP.shinyapps.io/)**
-Interactive R Shiny app combining WNBA and NCAA Division I data so users can build their own charts and tables.
+**[Data Science Capstone: WNBA and NCAA Explorer](https://github.com/louiserosenbaum/Shiny-final-project)**
+Team project (2024). R Shiny app that scraped and combined WNBA and NCAA Division I data so users could build their own charts and tables.
 
 **[Wisconsin Congressional Districts](WI_Gerrymandering.qmd)**
 Mapped 2016 House results by district to show how district shapes affect representation.
