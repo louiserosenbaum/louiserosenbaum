@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Louise Rosenbaum",
     "section": "",
-    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | 2025 to 2026 \nMarket Development Representative | Kipsu | 2024 to 2025 \nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
+    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | Jun 2025 – Jun 2026\nUsed SQL in AWS Redshift to trace a recurring Hilton data-quality issue to its root cause, documented the findings, and wrote remediation tickets for engineering. Coordinated the deployment of 150+ Hilton properties across Engineering, Product, Client Success, and the client.\nMarket Development Representative | Kipsu | Sep 2024 – Jun 2025\nRan outbound email campaigns for the Living Environments team (senior living, higher education, military), tailored messaging by segment, and wrote 8+ published industry articles.\nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
   },
   {
     "objectID": "index.html#louise-rosenbaum",
@@ -32,13 +32,13 @@
     "href": "index.html#data-and-business-analyst",
     "title": "Louise Rosenbaum",
     "section": "",
-    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | 2025 to 2026 \nMarket Development Representative | Kipsu | 2024 to 2025 \nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
+    "text": "Minneapolis, MN\nI work at the point where business teams and their data meet: pulling it with SQL, keeping systems like Salesforce clean, and turning it into reporting people actually use. I’m looking for data analyst and business analyst roles.\n\n\nProject Coordinator | Kipsu | Jun 2025 – Jun 2026\nUsed SQL in AWS Redshift to trace a recurring Hilton data-quality issue to its root cause, documented the findings, and wrote remediation tickets for engineering. Coordinated the deployment of 150+ Hilton properties across Engineering, Product, Client Success, and the client.\nMarket Development Representative | Kipsu | Sep 2024 – Jun 2025\nRan outbound email campaigns for the Living Environments team (senior living, higher education, military), tailored messaging by segment, and wrote 8+ published industry articles.\nB.A., Political Science and Psychology | St. Olaf College | 2024\n\n\n\nSQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · R · Jira Service Management · Google Apps Script"
   },
   {
     "objectID": "index.html#projects",
     "href": "index.html#projects",
     "title": "Louise Rosenbaum",
     "section": "Projects",
-    "text": "Projects\nData Science Capstone: WNBA and NCAA Explorer Team project (2024). R Shiny app that scraped and combined WNBA and NCAA Division I data so users could build their own charts and tables.\nWisconsin Congressional Districts Mapped 2016 House results by district to show how district shapes affect representation.\nSchool Dress Codes Analyzed dress code rules from 481 U.S. high schools, including where the data’s sample skews results."
+    "text": "Projects\nData Science Capstone: WNBA and NCAA Explorer\nTeam project (2024). R Shiny app that scraped and combined WNBA and NCAA Division I data so users could build their own charts and tables.\nWisconsin Congressional Districts\nMapped 2016 House results by district to show how district shapes affect representation.\nSchool Dress Codes\nAnalyzed dress code rules from 481 U.S. high schools, including where the data’s sample skews results."
   }
 ]

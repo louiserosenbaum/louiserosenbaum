@@ -25,11 +25,11 @@ I work at the point where business teams and their data meet: pulling it with SQ
 
 ### Experience
 
-**Project Coordinator** | Kipsu | 2025 to 2026
-<!-- TODO: one line with a real result, e.g. "Built X report in Tableau used by Y team" -->
+**Project Coordinator** | Kipsu | Jun 2025 – Jun 2026\
+Used SQL in AWS Redshift to trace a recurring Hilton data-quality issue to its root cause, documented the findings, and wrote remediation tickets for engineering. Coordinated the deployment of 150+ Hilton properties across Engineering, Product, Client Success, and the client.
 
-**Market Development Representative** | Kipsu | 2024 to 2025
-<!-- TODO: one line with a real result -->
+**Market Development Representative** | Kipsu | Sep 2024 – Jun 2025\
+Ran outbound email campaigns for the Living Environments team (senior living, higher education, military), tailored messaging by segment, and wrote 8+ published industry articles.
 
 **B.A., Political Science and Psychology** | St. Olaf College | 2024
 
@@ -41,11 +41,11 @@ SQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · 
 
 ## Projects
 
-**[Data Science Capstone: WNBA and NCAA Explorer](https://github.com/louiserosenbaum/Shiny-final-project)**
+**[Data Science Capstone: WNBA and NCAA Explorer](https://github.com/louiserosenbaum/Shiny-final-project)**\
 Team project (2024). R Shiny app that scraped and combined WNBA and NCAA Division I data so users could build their own charts and tables.
 
-**[Wisconsin Congressional Districts](WI_Gerrymandering.qmd)**
+**[Wisconsin Congressional Districts](WI_Gerrymandering.qmd)**\
 Mapped 2016 House results by district to show how district shapes affect representation.
 
-**[School Dress Codes](mini_project3.qmd)**
+**[School Dress Codes](mini_project3.qmd)**\
 Analyzed dress code rules from 481 U.S. high schools, including where the data's sample skews results.
