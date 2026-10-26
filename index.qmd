@@ -29,7 +29,7 @@ I work at the point where business teams and their data meet: pulling it with SQ
 Used SQL in AWS Redshift to trace a recurring Hilton data-quality issue to its root cause, documented the findings, and wrote remediation tickets for engineering. Coordinated the deployment of 150+ Hilton properties across Engineering, Product, Client Success, and the client.
 
 **Market Development Representative** | Kipsu | Sep 2024 – Jun 2025\
-Ran outbound email campaigns for the Living Environments team (senior living, higher education, military), tailored messaging by segment, and wrote 8+ published industry articles.
+Ran outbound email campaigns for the Living Environments team (senior living, higher education, military), tailored messaging by segment, and wrote 8 published industry articles, including [Beyond the survey](https://www.kipsu.com/blog/multifamily-beyond-the-survey-how-kipsu-helps-your-feedback-loop) and [Best practices for communication in senior living](https://www.kipsu.com/blog/best-practices-for-communication-in-senior-living-communities).
 
 **B.A., Political Science and Psychology** | St. Olaf College | 2024
 
