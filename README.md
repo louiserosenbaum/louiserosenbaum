@@ -21,7 +21,7 @@ I work where business teams and their data meet: pulling data with SQL, keeping 
 
 ## Projects
 
-- **[Minneapolis Construction Permits](https://public.tableau.com/app/profile/louise.rosenbaum/viz/minneapolis-permits/MinneapolisConstructionPermits)** ([code](https://github.com/louiserosenbaum/minneapolis-construction-permits)): SQL cleaning of 409K city permit records and an interactive Tableau dashboard. Found the raw data overstates construction value by up to 4x, and that 13 firms build half of commercial projects.
+- **[Minneapolis Construction Permits](https://public.tableau.com/app/profile/louise.rosenbaum/viz/MinneapolisConstructionPermits/MinneapolisConstructionPermits)** ([code](https://github.com/louiserosenbaum/minneapolis-construction-permits)): SQL cleaning of 409K city permit records and an interactive Tableau dashboard. Found the raw data overstates construction value by up to 4x, and that 13 firms build half of commercial projects.
 - **[SQL and Salesforce Work Samples](https://github.com/louiserosenbaum/Data-analysis-portfolio)**: SQL validation query that finds users who can log in but can't reach their dashboard, plus SOQL checks from a Salesforce product and asset audit. Based on real work, rewritten with generic names.
 - **[Data Science Capstone: WNBA and NCAA Explorer](https://github.com/louiserosenbaum/Shiny-final-project)**: Team project (2024). R Shiny app combining WNBA and NCAA Division I data so users could build their own charts and tables.
 - **[Wisconsin Congressional Districts](https://louiserosenbaum.github.io/louiserosenbaum/WI_Gerrymandering.html)**: Interactive map of 2016 House results by district, showing how district shapes affect representation.

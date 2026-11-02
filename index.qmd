@@ -41,7 +41,7 @@ SQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · 
 
 ## Projects
 
-**[Minneapolis Construction Permits](https://public.tableau.com/app/profile/louise.rosenbaum/viz/minneapolis-permits/MinneapolisConstructionPermits)**\
+**[Minneapolis Construction Permits](https://public.tableau.com/app/profile/louise.rosenbaum/viz/MinneapolisConstructionPermits/MinneapolisConstructionPermits)**\
 SQL cleaning of 409K city permit records and an interactive Tableau dashboard. Found the raw data overstates construction value by up to 4x. [Code on GitHub](https://github.com/louiserosenbaum/minneapolis-construction-permits)
 
 **[SQL and Salesforce Work Samples](https://github.com/louiserosenbaum/Data-analysis-portfolio)**\
