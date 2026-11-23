@@ -44,7 +44,7 @@ SQL (Redshift) · Salesforce administration · Tableau · Power BI · Python · 
 **[Minneapolis Construction Permits](https://public.tableau.com/app/profile/louise.rosenbaum/viz/MinneapolisConstructionPermits/MinneapolisConstructionPermits)**\
 SQL cleaning of 409K city permit records and an interactive Tableau dashboard. Found the raw data overstates construction value by up to 4x. [Code on GitHub](https://github.com/louiserosenbaum/minneapolis-construction-permits)
 
-**[U.S. Water Access](https://github.com/louiserosenbaum/US-water-access)** (in progress)\
+**[U.S. Water Access](https://github.com/louiserosenbaum/US-water-access)** (Minnesota findings live)\
 SQL (DuckDB) and Python on EPA drinking water data for 998 Minnesota water systems. Small tribal systems had about 3.5x the rate of health-based violations of similar-size state systems. [Story page](https://louiserosenbaum.github.io/US-water-access/) · [Code](https://github.com/louiserosenbaum/US-water-access)
 
 **[SQL and Salesforce Work Samples](https://github.com/louiserosenbaum/Data-analysis-portfolio)**\
